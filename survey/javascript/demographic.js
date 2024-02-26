@@ -144,8 +144,17 @@ function redirectToPage(url){
   location.href = url;
 }
 
+function getPreviousPage(){
+  const surveyStatus = localStorage.getItem('surveyStatus');
+  if (surveyStatus !== null) {
+    const status = JSON.parse(surveyStatus);
+    if('membershipFunctionStatus' in status) return status['membershipFunctionStatus'];
+  }
+  return 'membershipfunction.html';
+}
+
 function previousPage(){
-  redirectToPage('membershipfunction.html');
+  redirectToPage(getPreviousPage());
 }
 
 
