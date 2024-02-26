@@ -1,0 +1,39 @@
+@import "scrollbar.css";
+
+.expression-title{
+  line-height: 1.5;
+  font-weight: 600;
+  color: #444;
+  margin: 1rem;
+  font-size: 16px;
+  /* font-weight: 500; */
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.expression-container {
+  width: 100%;
+  border: solid 2px #ccc;
+  border-radius: 5px;
+  /* width: 200px; */
+  overflow: hidden; 
+  overflow: auto;
+}
+
+
+.expression-container ul{
+  width: 100%;
+}
+
+.expression-container ul li{
+  word-break: break-word;
+  padding: 3px;
+}
+
+li:nth-child(odd){
+  background-color: #f4f4f4;
+}
+
+
+
+

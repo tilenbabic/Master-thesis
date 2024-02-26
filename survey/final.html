@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css_old/styles.css"> -->
+    <link rel="stylesheet" href="css/general_styles.css">
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="javascript/final.js" defer></script>
+    <title>Comments</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Final comments</div>
+        <form action="#" id="item-form">
+            <p class="instructions">
+                You are almost done!<br><br>
+                If you have any thoughts or comments about the topic, or research, or this questionnaire, please share them with us:
+            </p>
+            <div class="input-box">
+                <!-- <span class="details">Enter your ID to start</span> -->
+                <textarea id="user-comment" cols="30" rows="10" placeholder="Write your complaints and compliments"></textarea>
+                <!-- <input type="text" placeholder="Write your complaints and compliments"> -->
+            </div>
+            <div class="buttons">
+                <button type="button" class="btn" id="btn-prev">
+                    <i class="fas fa-arrow-circle-left"></i> Previous Page
+                </button>
+              <button class="btn">
+                  Complete <i class="fas fa-arrow-circle-right"></i>  
+              </button>
+            </div>
+            
+        </form>
+    </div>
+    <script type="text/javascript">
+        document.getElementById("btn-prev").onclick = function () {
+            location.href = "demographic.html";
+        };
+    </script>
+</body>
+</html> 

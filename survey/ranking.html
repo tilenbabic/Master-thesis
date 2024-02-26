@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  <!-- <link rel="stylesheet" href="css_old/lexicon.css"> -->
+  <link rel="stylesheet" href="css/ranking.css">
+  <script src="javascript/ranking.js" defer></script>
+  <script src="javascript/expressions.js" defer></script>
+  <title>Lexicon</title>
+</head>
+<body>
+  <div class="container">
+    <!-- <div class="title">Lexicon</div> -->
+    
+    <div id="item-form">
+        <p  class="instructions">
+          Select probability expressions between chosen extremes and rank them by dragging them in place.
+        </p>
+        <div class="content-container">
+          <div class="left-side">
+            <div class="input-bar">
+                <div class="input-text">EXPRESSIONS</div>
+                <input
+                  type="text"
+                  class="form-input"
+                  id="item-input"
+                  name="item"
+                  placeholder="Enter expressions"
+                  autocomplete="off"
+                />
+
+                <button type="button" class="btn btn-add" id="btn-add">
+                  <i class="fa-solid fa-plus"></i> Add Item
+                </button>
+            </div>
+          </div>
+
+          <div class="middle">
+            <div class="ranking-text">RANKING</div>
+            <div class="ranking-container">
+              <div class="non-draggable" id="base-expression-100"></div>
+
+              <div class="dragging-container" id="upper-container">
+
+                <!-- <p class="draggable" >
+                  <span class="align-middle">
+                    <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
+                  </span>
+                  <span class="draggable-text">tralalala</span>
+                  <button class="remove-item btn-link text-red">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </p> -->
+                <p class="blank"></p>
+                <p class="blank"></p>
+                <p class="blank"></p>
+                <p class="blank"></p>
+
+              </div>
+
+              <div class="non-draggable" id="base-expression-50"></div>
+
+              <div class="dragging-container" id="lower-container">
+
+                <p class="blank"></p>
+                <p class="blank"></p>
+                <p class="blank"></p>
+                <p class="blank"></p>
+              </div>
+
+              <div class="non-draggable"  id="base-expression-0"></div>  
+            </div>
+            
+          </div> 
+
+          <div class="right-side">
+            <span class="expression-title">SUGGESTIONS</span>
+            <div class="expression-container">
+              <ul id="expression-list">
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        
+        
+        
+
+        <div class="buttons">
+          <button type="button" class="btn" id="btn-prev">
+            <i class="fas fa-arrow-circle-left"></i> Previous Page
+          </button>
+          <button type="button" class="btn" id="btn-next">
+              Next Page <i class="fas fa-arrow-circle-right"></i>  
+          </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

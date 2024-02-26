@@ -1,0 +1,45 @@
+@import "general_styles.css";
+@import "inputs.css";
+@import "buttons.css";
+@import "expressions.css";
+
+.side-by-side {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.left-side {
+  width: 70%;
+  align-items: center;
+}
+
+
+.right-side {
+  float: right;
+  margin-left: 1rem;
+  width: 30%;
+}
+
+.expression-container{
+  height: 200px;
+}
+
+
+
+@media (max-width: 600px) {
+  .expression-container{
+    height: 250px;
+  }
+  .right-side .expression-title{
+    display: none;
+  }
+  .right-side{
+    width: 45%;
+  }
+  .left-side {
+    width: 55%;
+  }
+  
+}

@@ -1,0 +1,19 @@
+
+/* Scrollbar styles */
+
+/* width */
+.expression-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.expression-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px #555; 
+  border-radius: 5px;
+}
+ 
+/* Handle */
+.expression-container::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 5px;
+}

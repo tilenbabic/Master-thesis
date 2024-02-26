@@ -1,0 +1,143 @@
+
+.container #item-form .input-box {
+  display: flex;
+  margin: 20px 0 12px 0;
+}
+
+
+#item-form  .input-box .details {
+  display: flex;
+  font-weight: 500;
+  margin-bottom: 5px;
+  width: 200px;
+  align-items: center;
+}
+
+
+
+#item-form  .input-box input.form-input,
+#item-form  .input-box select{
+  height: 45px;
+  width: calc(100% - 200px);
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+/* lexicon1 smaller label and bigger input */
+#item-form  .input-box .details.width-150 {
+  width: 150px;
+}
+#item-form  .input-box input.form-input.width-150 {
+  width: calc(100% - 150px);
+}
+
+
+
+
+
+#item-form  .input-box input.without-label {
+  width: 100%;
+}
+
+#item-form  .input-box textarea{
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 5px;
+  padding: 12px 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #f8f8f8;
+  outline: none;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+
+
+#item-form  .input-box textarea:focus,
+#item-form  .input-box input.form-input:focus,
+#item-form  .input-box input.form-input:valid,
+#item-form  .input-box select:focus,
+#item-form  .input-box select:valid{
+  border-color: var(--color-two);
+}
+
+#item-form  .radio-details .radio-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#item-form .radio-details .category {
+  display: flex;
+  width: 100%;
+  margin: 14px 0;
+  justify-content: space-between;
+}
+
+.radio-details .category label {
+  display: flex;
+  align-items: center;
+}
+
+.radio-details .category .dot {
+  height: 18px;
+  width: 18px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+
+#english-dot-yes:checked ~ .category label .english-one,
+#english-dot-no:checked ~ .category label .english-two,
+#english-dot-none:checked ~ .category label .english-three,
+#gender-dot-male:checked ~ .category label .gender-one,
+#gender-dot-female:checked ~ .category label .gender-two,
+#gender-dot-other:checked ~ .category label .gender-three,
+#gender-dot-none:checked ~ .category label .gender-four {
+  border-color: #d9d9d9;
+  background: var(--color-two);
+}
+
+/* zbrise radio buttne */
+#item-form input[type="radio"]{
+  opacity: 0;
+  position: absolute;
+}
+
+input[type="text"],
+textarea {
+  caret-color: black;
+}
+
+
+
+@media (max-width: 600px) {
+  #item-form .input-box{
+      flex-direction: column;
+      margin-bottom: 15px;
+      width: 100%;
+  }
+  #item-form .input-box input.form-input,
+  #item-form .input-box select{
+      width: 100%;
+  }
+  #item-form .radio-details .category label{
+      margin-bottom: 15px;
+  }
+  #item-form .radio-details .category {
+      flex-direction: column;
+  }
+  #item-form .input-box input.form-input.width-150 {
+    width: 100%;
+}
+}

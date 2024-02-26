@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css_old/styles.css"> -->
+    <!-- <link rel="stylesheet" href="css_old/expressions.css"> -->
+    <link rel="stylesheet" href="css/lexicon.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="javascript/expressions.js" defer></script>
+    <script src="javascript/lexicon.js" defer></script>
+    <title>Lexicon</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="title">Lexicon</div>
+        <form action="ranking.html" id="item-form">
+          <p  class="instructions">
+            Choose probability expressions for 3 extreme probabilities: 0%, 50%, 100%.
+          </p>
+          <div class="side-by-side">
+            <div class="left-side">
+              <div class="input-box">
+                <span class="details width-150">Probability of 0</span>
+                <!-- <select name="year" id="year" required></select> -->
+                <input
+                  type="text"
+                  class="form-input width-150"
+                  id="base-expression-0"
+                  name="item"
+                  placeholder="Enter expressions"
+                  autocomplete="off"
+                  required
+                />
+                <!-- <datalist id="expressions"> </datalist> -->
+              </div>
+              <div class="input-box">
+                  <span class="details width-150">Probability of 50</span>
+                  <!-- <select name="year" id="year" required></select> -->
+                  <input
+                    type="text"
+                    class="form-input width-150"
+                    id="base-expression-50"
+                    name="item"
+                    placeholder="Enter expressions"
+                    autocomplete="off"
+                    required
+                  />
+                <!-- <datalist id="expressions"> </datalist> -->
+              </div>
+              <div class="input-box">
+                  <span class="details width-150">Probability of 100</span>
+                  <!-- <select name="year" id="year" required></select> -->
+                  <input
+                    type="text"
+                    class="form-input width-150"
+                    id="base-expression-100"
+                    name="item"
+                    placeholder="Enter expressions"
+                    autocomplete="off"
+                    required
+                  />
+                <!-- <datalist id="expressions"> </datalist> -->
+              </div>
+            </div>
+
+            <div class="right-side">
+              <span class="expression-title">SUGGESTIONS</span>
+              <div class="expression-container">
+                <ul id="expression-list">
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+            
+          
+          
+          <div class="buttons">
+            <button type="button" class="btn" id="btn-prev">
+              <i class="fas fa-arrow-circle-left"></i> Previous Page
+            </button>
+            <button type="sumbit" class="btn" id="btn-next">
+                Next Page <i class="fas fa-arrow-circle-right"></i>  
+            </button>
+          </div>
+        </form>
+    </div>
+    
+</body>
+</html>

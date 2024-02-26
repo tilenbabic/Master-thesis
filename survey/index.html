@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css_old/styles.css"> -->
+    <link rel="stylesheet" href="css/general_styles.css">
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="javascript/index.js" defer></script>
+    <title>Introduction</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Introduction</div>
+        <form action="lexicon.html" id="item-form">
+            <p class="instructions">
+                Dear Participant,<br><br>
+                We are researchers from the Faculty of computer and information science, University of Ljubljana, Slovenia.
+                Our goal is to better understand how people perceive verbal expressions of probabilities. 
+                This survey will take less than ? minutes of your time, but your input will be indispensable to our research.
+                The survey is completely anonymous, but if you for any reason feel uncomfortable with answering a question, opt for "I prefer not to answer" or simply leave the question unanswered. We plan on publishing our findings, but we will not share the individual-level data with any third party. 
+                If you have any questions or comments about the survey, please contact us at: datascience@fri.uni-lj.si.
+            </p>
+            <div class="input-box">
+                <!-- <span class="details">Enter your ID to start</span> -->
+                <input id="user-id" class="form-input without-label" type="text" placeholder="Enter your ID to start" required autocomplete="off">
+            </div>
+            <div class="buttons first"> 
+                <button type="submit" class="btn" id="btn-next">
+                    Next Page <i class="fas fa-arrow-circle-right"></i>  
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
