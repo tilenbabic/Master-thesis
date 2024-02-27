@@ -504,6 +504,10 @@ function storeExpressions(e){
 
 
 function previousPage(){
+  const lowerExpressions = getContainerExpressions('lower-container');
+  const upperExpressions = getContainerExpressions('upper-container');
+  storeContainerExpressions('upperContainer', upperExpressions);
+  storeContainerExpressions('lowerContainer', lowerExpressions);
   redirectToPage('lexicon.html');
 }
 

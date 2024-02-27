@@ -141,6 +141,8 @@ function redirectToPage(url){
 }
 
 function previousPage(){
+  storeSliderValues();
+  
   updateExpressionPosition('prev');
   redirectToPage(nextPageURL);
 }

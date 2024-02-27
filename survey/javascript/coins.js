@@ -248,7 +248,7 @@ function redirectToPage(url){
 }
 
 function nextPage() {
-  // store slider values
+  // store coins
   storeCoins();
 
   // update currPosition and redirect to next page
@@ -258,6 +258,7 @@ function nextPage() {
 }
 
 function previousPage(){
+  storeCoins();
   updateExpressionPosition('prev');
   redirectToPage(nextPageURL);
 }
