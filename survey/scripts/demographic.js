@@ -3,22 +3,6 @@ const btnPrev = document.getElementById("btn-prev");
 // const btnNext = document.getElementById("btn-next");
 
 
-// function displayElement(elementID, storageKey) {
-//   const element = document.getElementById(elementID);
-//   const value = localStorage.getItem(storageKey);
-//   if (value !== null) {
-//     element.value = value;
-//   }
-// }
-
-// function displayRadio(storageKey){
-//   const value = localStorage.getItem(storageKey);
-
-//   if (value !== null) {
-//     document.getElementById(value).checked = true;
-//   }
-// }
-
 function displayRadio(storageKey) {
   const value = localStorage.getItem('userData');
 
@@ -42,17 +26,6 @@ function displayElement(elementID, storageKey) {
     }
   }
 }
-
-
-// function storeElement(elementID, storageKey){
-//   const element = document.getElementById(elementID);
-//   localStorage.setItem(storageKey, element.value);
-// }
-
-// function storeRadio(selector, storageKey){
-//   const gender = document.querySelector(selector);
-//   localStorage.setItem(storageKey, gender.id);
-// }
 
 
 function storeElement (elementID, storageKey){
@@ -160,9 +133,8 @@ function previousPage(){
 
 document.addEventListener('DOMContentLoaded', loadContent);
 itemForm.addEventListener('submit', storeContent);
-// btnNext.addEventListener('click', storeContent);
 btnPrev.addEventListener('click', previousPage);
-
+// btnNext.addEventListener('click', storeContent);
 
 
 

@@ -250,7 +250,6 @@ function redirectToPage(url){
 function nextPage() {
   // store coins
   storeCoins();
-
   // update currPosition and redirect to next page
   updateExpressionPosition('next');
   redirectToPage(nextPageURL);
@@ -263,15 +262,10 @@ function previousPage(){
   redirectToPage(nextPageURL);
 }
 
-// function onLoad(){
-//   // create table/coin field
-//   createTable();
-// }
 
 function onLoad() {
   // prepareSliders();
   createTable();
-
   // load expression to instructions
   curExpression = getCurrentExpression();
   if(curExpression !== null) {
@@ -279,17 +273,11 @@ function onLoad() {
   }else{
     redirectToPage('ranking.html');
   }
-  
-
   // load sliders if values in storage
   displayCoins();
   updateCounter();
 }
 
-
-
-
-// var table = document.getElementById('coinField')
 
 document.addEventListener('DOMContentLoaded', onLoad);
 cointContainer.addEventListener('click', coinAddRemove);

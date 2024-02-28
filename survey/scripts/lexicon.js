@@ -5,19 +5,6 @@ const btnPrev = document.getElementById("btn-prev");
 // const btnNext = document.getElementById("btn-next");
 
 
-
-// function storeExpressions (){
-//   const baseExpressions = [...document.getElementsByClassName('form-input')];
-//   const expressions = {};
-//   baseExpressions.forEach( expression => {
-//     expressions[expression.id] = expression.value;
-//   });
-
-//   localStorage.setItem('baseExpressions', JSON.stringify(expressions));
-// }
-
-
-
 function storeExpressions(){
   // e.preventDefault();
   // get expressions
@@ -33,17 +20,6 @@ function storeExpressions(){
   }
   // redirectToPage('lexicon2.html');
 }
-
-
-// function displayExpressions() {
-//   const value = localStorage.getItem('baseExpressions');
-//   if (value !== null) {
-//     Object.entries(JSON.parse(value)).forEach(([key, value]) => {
-//       const expression = document.getElementById(key);
-//       expression.value = value;
-//     });
-//   }
-// }
 
 function displayExpressions() {
   const value = localStorage.getItem('surveyStatus');
@@ -76,11 +52,3 @@ function previousPage(){
 document.addEventListener('DOMContentLoaded', displayExpressions);
 itemForm.addEventListener('submit', storeExpressions);
 btnPrev.addEventListener('click', previousPage);
-
-
-// document.getElementById("btn-prev").onclick = function () {
-//   location.href = "index.html";
-// };
-// document.getElementById("btn-next").onclick = function () {
-// location.href = 'lexicon2.html';
-// };

@@ -1,135 +1,15 @@
 import {loadSuggestions} from "./helpers/expressions.js";
+import {showWarning, clearWarning} from "./helpers/warnings.js";
+import {createBlank, createDraggable} from "./helpers/elements.js";
 
 const formBtn = document.getElementById('btn-add');
-const itemInput = document.getElementById('item-input');
-// const itemForm = document.getElementById('item-form');
 const containers = document.querySelectorAll('.dragging-container')
-
 const btnPrev = document.getElementById("btn-prev");
 const btnNext = document.getElementById("btn-next");
 
 
-
-// create deault icon element
-function createIcon(classes) {
-  const icon = document.createElement('i');
-  icon.className = classes;
-  return icon;
-}
-
-// create remove icon/button element
-function createRemove(classes) {
-  const button = document.createElement('button');
-  button.className = classes;
-  const icon = createIcon('fa-solid fa-xmark');
-  button.appendChild(icon);
-  return button;
-}
-
-// create 3 dots icon element
-function createDots() {
-  const span = document.createElement('span');
-  span.className = "align-middle";
-  const icon = createIcon('fa-solid fa-ellipsis-vertical fa-lg');
-  span.appendChild(icon);
-  return span;
-}
-
-// create text element
-function createText(newExpression, className) {
-  const span = document.createElement('span');
-  const text = document.createTextNode(newExpression);
-  span.className = className;
-  span.appendChild(text);
-  return span;
-}
-
-function createTextWarning(warningText, idName) {
-  const span = document.createElement('span');
-  const text = document.createTextNode(warningText);
-  span.setAttribute("id", idName);
-  // span.id = idName;
-  span.appendChild(text);
-  return span;
-}
-
-
-// puzzle together text, dots-icon and remove-icon/button to create draggable element
-function createDraggable(newExpression) {
-  const p = document.createElement('p'); 
-  const dots = createDots(); // 
-  const remove = createRemove('remove-item btn-link text-red');
-  const text = createText(newExpression, "draggable-text");
-  
-  p.appendChild(dots);
-  p.appendChild(text);
-  p.appendChild(remove);
-  
-  p.classList.add('draggable');
-  p.setAttribute('draggable',true);
-  return p;
-}
-
-// warnings
-// warning 
-function createWarningAdd(warningText){
-  const div = document.createElement('div'); 
-  const icon = createIcon("fa fa-exclamation-triangle fa-2x");
-  const text = createTextWarning(warningText, "warning-text");
-
-  div.appendChild(icon);
-  div.appendChild(text);
-
-  div.classList.add("warning-add");
-  return div;
-}
-
-function createWarningNext(warningText){
-  const div = document.createElement('div'); 
-  const icon = createIcon("fa fa-exclamation-triangle");
-  const text = createTextWarning(warningText, "warning-text");
-
-  div.appendChild(text);
-  div.appendChild(icon);
-  
-  div.classList.add("warning-next");
-  return div;
-}
-
-
-function showWarning(warningText, containerID){
-  const warning = (containerID == "warning-container-add")? createWarningAdd(warningText) : createWarningNext(warningText);
-  const warningContainer = document.getElementById(containerID);
-  warningContainer.appendChild(warning);
-}
-
-function clearWarning(containerID){
-  const warningContainer = document.getElementById(containerID);
-  warningContainer.innerHTML = '';
-}
-
-
-
-// function showWarningNext(warningText){
-//   const warning = createWarningNext(warningText);
-//   const warningContainer = document.getElementById("warning-container-next");
-//   warningContainer.appendChild(warning);
-// }
-
-// function clearWarningNext(){
-//   const warningContainer = document.getElementById("warning-container-next");
-//   warningContainer.innerHTML = '';
-// }
-
-
-
-
-
-// blank
-function createBlank(){
-  const p = document.createElement('p'); 
-  p.classList.add('blank');
-  return p
+function redirectToPage(url){
+  location.href = url;
 }
 
 function randomBlank(){
@@ -142,6 +22,7 @@ function randomBlank(){
 
 // add draggable element to ranking container on user input
 function addItem(){
+  const itemInput = document.getElementById('item-input');
   const newExpression = itemInput.value;
   clearWarning('warning-container-add');
   clearWarning('warning-container-next');
@@ -182,6 +63,7 @@ function setDraggingEventListener(element) {
 
 
 function addExpression(newExpression, containerID, n) {
+  const itemInput = document.getElementById('item-input');
   // create draggable element
   const element = createDraggable(newExpression);
   // put dragstart and dragend listeners on element
@@ -191,49 +73,13 @@ function addExpression(newExpression, containerID, n) {
   // container.appendChild(element);
 
   container.replaceChild(element,container.querySelectorAll('.draggable,.blank')[n]);
-  // container.querySelectorAll('.draggable,.blank')[0] = element;
-  // console.log();
   
-  // updateDraggables();
-
   itemInput.value = '';
-}
-
-// function addExpression(newExpression, replacemenNode) {
-//   // create draggable element
-//   const element = createDraggable(newExpression);
-//   // put dragstart and dragend listeners on element
-//   setDraggingEventListener(element);
-//   // Append Element to container
-//   const container = document.getElementById(replacemenNode.parentElement.id);
-//   // container.appendChild(element);
-
-//   // container.replaceChild(element,container.querySelectorAll('.draggable,.blank')[n]);
-//   container.replaceChild(element, replacemenNode);
-//   // container.querySelectorAll('.draggable,.blank')[0] = element;
-//   // console.log();
-  
-//   // updateDraggables();
-
-//   itemInput.value = '';
-// }
-
-
-
-// blank
-function addBlank (containerID){
-  const element = createBlank();
-  const container = document.getElementById(containerID);
-  container.appendChild(element);
 }
 
 
 
 function removeItem(e) {
-  // if (e.target.parentElement.classList.contains('remove-item')) {
-  //   e.target.parentElement.parentElement.remove();
-  // }
-
   if (e.target.parentElement.classList.contains('remove-item')) {
     const container = e.target.parentElement.parentElement.parentElement;
     const element = createBlank();
@@ -242,17 +88,6 @@ function removeItem(e) {
 
 
 }
-
-// function displayBaseExpressions() {
-//   const baseExpressions = localStorage.getItem('baseExpressions');
-
-//   if (baseExpressions !== null) {
-//     Object.entries(JSON.parse(baseExpressions)).forEach(([key, value]) => {
-//       const expression = document.getElementById(key);
-//       expression.innerText = value;
-//     });
-//   }
-// }
 
 function displayBaseExpressions() {
   const value = localStorage.getItem('surveyStatus');
@@ -269,19 +104,6 @@ function displayBaseExpressions() {
 }
 
 
-
-
-// function displayContainerExpressions(storageKey, containerID) {
-//   const containerExpressions = localStorage.getItem(storageKey);
-
-//   if (containerExpressions !== null) {
-//     JSON.parse(containerExpressions).forEach(expression => {
-//       addExpression(expression, containerID);
-//     });
-//   }
-// }
-
-
 function displayContainerExpressions(storageKey, containerID) {
   const value = localStorage.getItem('surveyStatus');
   // const containerExpressions = localStorage.getItem(storageKey);
@@ -296,13 +118,6 @@ function displayContainerExpressions(storageKey, containerID) {
       });
     }
   }
-
-  // addBlank(containerID);
-  // addBlank(containerID);
-  // addBlank(containerID);
-  // addBlank(containerID);
-
-
 }
 
 function getDragAfterElement(container, y) {
@@ -481,11 +296,6 @@ function alertUser(base, lower, upper){
   }
   return false;
 }
-
-function redirectToPage(url){
-  location.href = url;
-}
-
 
 
 function getNextPage(){

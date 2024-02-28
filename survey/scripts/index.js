@@ -1,12 +1,6 @@
 const itemForm = document.getElementById('item-form');
 // const btnNext = document.getElementById("btn-next");
 
-// function storeID (){
-//   const userID = document.getElementById('user-id');
-//   // console.log(userID);
-//   localStorage.setItem('userID', userID.value);
-// }
-
 function redirectToPage(url){
   location.href = url;
 }
@@ -26,15 +20,6 @@ function storeID (){
 }
 
 
-// function displayID () {
-//   const userID = document.getElementById('user-id');
-//   const value = localStorage.getItem('userID');
-//   if (value !== null) {
-//     userID.value = value;
-//   }
-// }
-
-
 function displayID () {
   const value = localStorage.getItem('userData');
   const userID = document.getElementById('user-id');
@@ -49,10 +34,8 @@ function displayID () {
 
 
 document.addEventListener('DOMContentLoaded', displayID);
-// btnNext.addEventListener('click', storeID);
 itemForm.addEventListener('submit', storeID);
-
-
+// btnNext.addEventListener('click', storeID);
 
 
 

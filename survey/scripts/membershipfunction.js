@@ -1,26 +1,18 @@
+import {prepareSliders, updateSlider} from "./helpers/slider.js";
+
 const itemForm = document.getElementById('item-form');
-const sliders = document.querySelectorAll("#range")
 const btnPrev = document.getElementById("btn-prev");
 const btnNext = document.getElementById("btn-next");
 
 let curExpression;
 let nextPageURL = 'ranking.html';
 
-function updateSlider (slider){
-  const progress = (slider.value / slider.max) * 100;
-  slider.style.background = `linear-gradient(to right, var(--color-two) ${progress}%, #ccc ${progress}%)`;
+function updateNextPageURL (url){
+  nextPageURL = url;
 }
 
-function sliderEvent (event) {
-    updateSlider (event.target);
-    // const progress = (event.target.value / event.target.max) * 100;
-    // event.target.style.background = `linear-gradient(to right, var(--color-two) ${progress}%, #ccc ${progress}%)`;
-}
-
-function prepareSliders () {
-  sliders.forEach( slider => {
-    slider.addEventListener("input", sliderEvent);
-  })
+function redirectToPage(url){
+  location.href = url;
 }
 
 function getCurrentExpression(){
@@ -40,27 +32,6 @@ function getCurrentExpression(){
 function loadExpressionInstructions(expression){
   const expressionElement = document.getElementById('expression');
   expressionElement.innerText = expression;
-}
-
-
-function onLoad() {
-  prepareSliders();
-
-  // load expression to instructions
-  curExpression = getCurrentExpression();
-  if(curExpression !== null) {
-    loadExpressionInstructions(curExpression);
-  }else{
-    redirectToPage('ranking.html');
-  }
-  
-
-  // load sliders if values in storage
-  displaySliderValues();
-}
-
-function updateNextPageURL (url){
-  nextPageURL = url;
 }
 
 
@@ -123,41 +94,36 @@ function displaySliderValues() {
   }
 }
 
+function onLoad() {
+  // slider init
+  prepareSliders();
+  // load expression to instructions
+  curExpression = getCurrentExpression();
+  if(curExpression !== null) {
+    loadExpressionInstructions(curExpression);
+  }else{
+    redirectToPage('ranking.html');
+  }
+  // load sliders if values in storage
+  displaySliderValues();
+}
+
 
 function nextPage() {
   // store slider values
   storeSliderValues();
-
   // update currPosition and redirect to next page
   updateExpressionPosition('next');
   redirectToPage(nextPageURL);
-
-}
-
-
-
-function redirectToPage(url){
-  location.href = url;
 }
 
 function previousPage(){
   storeSliderValues();
-  
   updateExpressionPosition('prev');
   redirectToPage(nextPageURL);
 }
 
-// function nextPage(){
-//   // store slider values 
-
-
-//   // redirect to next page (either same page with different expression or demographic.html)
-//   redirectToPage('demographic.html');
-// }
-
-
 
 document.addEventListener('DOMContentLoaded', onLoad);
-// itemForm.addEventListener('submit', storeExpressions);
 btnNext.addEventListener('click', nextPage);
 btnPrev.addEventListener('click', previousPage);
