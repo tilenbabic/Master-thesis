@@ -20,15 +20,18 @@
         <form action="final.html" id="item-form">
             <div class="input-box">
                 <span class="details">Year of birth</span>
-                <select name="year" id="year" required></select>
+                <select id="year" required></select>
+                <!-- <select name="year" id="year" required></select> -->
             </div>
             <div class="input-box">
                 <span class="details">Country of residence</span>
-                <select name="country" id="country" required></select>
+                <select id="country" required></select>
+                <!-- <select name="country" id="country" required></select> -->
             </div>
             <div class="input-box">
                 <span class="details">Highest degree received</span>
-                <select name="education" id="education" required>
+                <!-- <select name="education" id="education" required> -->
+                <select id="education" required>
                     <option disabled="disabled" selected></option>
                     <option value="none">I prefer not to answer</option>
                     <option value="no_school">No schooling completed</option>
@@ -43,10 +46,14 @@
             </div>
             <div class="radio-details">
                 <span class="radio-title">Gender</span>
-                <input class="form-input" type="radio" name="gender" id="gender-dot-male" required>
+                <input class="form-input" type="radio" id="gender-dot-male" required>
+                <input class="form-input" type="radio" id="gender-dot-female">
+                <input class="form-input" type="radio" id="gender-dot-other">
+                <input class="form-input" type="radio" id="gender-dot-none">
+                <!-- <input class="form-input" type="radio" name="gender" id="gender-dot-male" required>
                 <input class="form-input" type="radio" name="gender" id="gender-dot-female">
                 <input class="form-input" type="radio" name="gender" id="gender-dot-other">
-                <input class="form-input" type="radio" name="gender" id="gender-dot-none">
+                <input class="form-input" type="radio" name="gender" id="gender-dot-none"> -->
                 
                 <div class="category">
                     <label for="gender-dot-male">
@@ -69,9 +76,12 @@
             </div>
             <div class="radio-details">
                 <span class="radio-title">English is my first language</span>
-                <input class="form-input" type="radio" name="english" id="english-dot-yes" required>
+                <input class="form-input" type="radio" id="english-dot-yes" required>
+                <input class="form-input" type="radio" id="english-dot-no">
+                <input class="form-input" type="radio" id="english-dot-none">
+                <!-- <input class="form-input" type="radio" name="english" id="english-dot-yes" required>
                 <input class="form-input" type="radio" name="english" id="english-dot-no">
-                <input class="form-input" type="radio" name="english" id="english-dot-none">
+                <input class="form-input" type="radio" name="english" id="english-dot-none"> -->
                 
                 <div class="category">
                     <label for="english-dot-yes">

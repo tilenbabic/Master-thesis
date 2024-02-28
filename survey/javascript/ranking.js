@@ -8,20 +8,6 @@ const btnNext = document.getElementById("btn-next");
 
 
 
-// put eventlistener on dragging elements
-// function updateDraggables() {
-//   const draggables = document.querySelectorAll('.draggable');
-//   draggables.forEach(draggable => {
-//     draggable.addEventListener('dragstart', () => {
-//       draggable.classList.add('dragging')
-//     })
-  
-//     draggable.addEventListener('dragend', () => {
-//       draggable.classList.remove('dragging')
-//     })
-//   })
-// }
-
 // create deault icon element
 function createIcon(classes) {
   const icon = document.createElement('i');
@@ -48,10 +34,19 @@ function createDots() {
 }
 
 // create text element
-function createText(newExpression){
+function createText(newExpression, className) {
   const span = document.createElement('span');
   const text = document.createTextNode(newExpression);
-  span.className = "draggable-text";
+  span.className = className;
+  span.appendChild(text);
+  return span;
+}
+
+function createTextWarning(warningText, idName) {
+  const span = document.createElement('span');
+  const text = document.createTextNode(warningText);
+  span.setAttribute("id", idName);
+  // span.id = idName;
   span.appendChild(text);
   return span;
 }
@@ -62,16 +57,71 @@ function createDraggable(newExpression) {
   const p = document.createElement('p'); 
   const dots = createDots(); // 
   const remove = createRemove('remove-item btn-link text-red');
-  const text = createText(newExpression);
+  const text = createText(newExpression, "draggable-text");
   
   p.appendChild(dots);
   p.appendChild(text);
   p.appendChild(remove);
   
-  p.classList.add('draggable')
+  p.classList.add('draggable');
   p.setAttribute('draggable',true);
   return p;
 }
+
+// warnings
+// warning 
+function createWarningAdd(warningText){
+  const div = document.createElement('div'); 
+  const icon = createIcon("fa fa-exclamation-triangle fa-2x");
+  const text = createTextWarning(warningText, "warning-text");
+
+  div.appendChild(icon);
+  div.appendChild(text);
+
+  div.classList.add("warning-add");
+  return div;
+}
+
+function createWarningNext(warningText){
+  const div = document.createElement('div'); 
+  const icon = createIcon("fa fa-exclamation-triangle");
+  const text = createTextWarning(warningText, "warning-text");
+
+  div.appendChild(text);
+  div.appendChild(icon);
+  
+  div.classList.add("warning-next");
+  return div;
+}
+
+
+function showWarning(warningText, containerID){
+  const warning = (containerID == "warning-container-add")? createWarningAdd(warningText) : createWarningNext(warningText);
+  const warningContainer = document.getElementById(containerID);
+  warningContainer.appendChild(warning);
+}
+
+function clearWarning(containerID){
+  const warningContainer = document.getElementById(containerID);
+  warningContainer.innerHTML = '';
+}
+
+
+
+// function showWarningNext(warningText){
+//   const warning = createWarningNext(warningText);
+//   const warningContainer = document.getElementById("warning-container-next");
+//   warningContainer.appendChild(warning);
+// }
+
+// function clearWarningNext(){
+//   const warningContainer = document.getElementById("warning-container-next");
+//   warningContainer.innerHTML = '';
+// }
+
+
+
+
 
 // blank
 function createBlank(){
@@ -91,15 +141,19 @@ function randomBlank(){
 // add draggable element to ranking container on user input
 function addItem(){
   const newExpression = itemInput.value;
+  clearWarning('warning-container-add');
+  clearWarning('warning-container-next');
   // Validate Input
   if (newExpression === '') {
-    alert('Please add an item');
+    showWarning('Please add an expression', 'warning-container-add');
+    // alert('Please add an item');
     return;
   }
 
   const replacemenNode = randomBlank();
   if (replacemenNode == null){
-    alert('You entered too many expressions');
+    // alert('You entered too many expressions');
+    showWarning('You entered too many expressions', 'warning-container-add');
     return;
   }
 
@@ -320,10 +374,6 @@ function displayExpressions() {
         
         container.insertBefore(draggable, afterElement);
       }
-      
-      
-
-
     })
   })
 }
@@ -355,33 +405,6 @@ function storeContainerExpressions(storageKey, containerExpressions) {
 }
 
 
-// function prepareForMembershipFunction (){
-//   const surveyStatus = localStorage.getItem('surveyStatus');
-  
-//   if (surveyStatus !== null) {
-//     const status = JSON.parse(surveyStatus);
-//     let order = [];
-    
-//     if('baseExpressions' in status){
-//       order.push(...status['baseExpressions']);
-//     }
-//     if('lowerContainer' in status){
-//       order.push(...status['lowerContainer']);
-//     }
-//     if('upperContainer' in status){
-//       order.push(...status['upperContainer']);
-//     }
-
-//     if(order.length == 0){
-//       status['membershipFunction'] = {'order': order};
-//     }else{
-//       status['membershipFunction'] = {'order': order, 'nextExpression': order[0]};
-//     }
-    
-
-//     localStorage.setItem('surveyStatus', JSON.stringify(status));
-//   }
-// }
 
 // filter out exprtessions that the user changed
 function filterExpressions(expressions, rankArray){
@@ -436,14 +459,19 @@ function getBaseExpressions(){
 
 function alertUser(base, lower, upper){
   // console.log(base.length, upper.length, lower.length);
+  clearWarning('warning-container-next');
+  clearWarning('warning-container-add');
   if(base.length !== 3){
-    alert("You need to enter 3 base expressions");
+    // alert("You need to enter 3 base expressions");
+    showWarning('You need to enter 3 base expressions', 'warning-container-next');
     return true;
   }else if(upper.length < 2){
-    alert("Upper container containes less then 2 expressions");
+    // alert("Upper container containes less then 2 expressions");
+    showWarning('Upper container contains less than 2 expressions', 'warning-container-next');
     return true;
   }else if(lower.length < 2){
-    alert("Lower container containes less then 2 expressions");
+    // alert("Lower container containes less then 2 expressions");
+    showWarning('Lower container contains less than 2 expressions', 'warning-container-next');
     return true;
   }
   return false;
