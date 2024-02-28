@@ -33,32 +33,24 @@ const expressions = [
 
 
 
-
+export function loadSuggestions(){
+  const expressionList = document.querySelector('#expression-list');
+  if (expressionList !== null){
+    let output = '';
+    expressions.forEach(expression => {
+      output += `<li>${expression} </li>`;
+    })
+    expressionList.innerHTML = output;
+  }
+}
+                    
 // document.addEventListener('DOMContentLoaded', () => {
 //   const expressionList = document.querySelector('#expression-list');
-
-//   fetch('data/expressions.json')
-//   .then(res => {
-//     return res.json();
-//   }).then(data => {
-//     let output = '';
-//     data.expressions.forEach(expression => {
-//       output += `<li>${expression} </li>`;
-//     })
-
-//     expressionList.innerHTML = output;
-//   }).catch(err => {
-//     console.log(err);
+//   let output = '';
+//   expressions.forEach(expression => {
+//     output += `<li>${expression} </li>`;
 //   })
+
+//   expressionList.innerHTML = output;
   
 // });
-document.addEventListener('DOMContentLoaded', () => {
-  const expressionList = document.querySelector('#expression-list');
-  let output = '';
-  expressions.forEach(expression => {
-    output += `<li>${expression} </li>`;
-  })
-
-  expressionList.innerHTML = output;
-  
-});

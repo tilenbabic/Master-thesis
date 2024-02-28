@@ -1,3 +1,5 @@
+import {loadSuggestions} from "./helpers/expressions.js";
+
 const itemForm = document.getElementById('item-form');
 const btnPrev = document.getElementById("btn-prev");
 // const btnNext = document.getElementById("btn-next");
@@ -55,6 +57,9 @@ function displayExpressions() {
       });
     }
   }
+
+  // load suggestions
+  loadSuggestions();
 }
 
 

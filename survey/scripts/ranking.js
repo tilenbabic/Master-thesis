@@ -1,3 +1,5 @@
+import {loadSuggestions} from "./helpers/expressions.js";
+
 const formBtn = document.getElementById('btn-add');
 const itemInput = document.getElementById('item-input');
 // const itemForm = document.getElementById('item-form');
@@ -376,6 +378,9 @@ function displayExpressions() {
       }
     })
   })
+
+  // load suggestions
+  loadSuggestions();
 }
 
 function getContainerExpressions(id){
