@@ -1,3 +1,7 @@
+@import "general_styles.css";
+@import "buttons.css";
+@import "warnings.css";
+
 :root{
   --color-one: #71b7e6;
   --color-two: #9b59b6;  
@@ -23,17 +27,18 @@
   border: 2px solid #ccc; ;
 }
 
-table{
-  width:100%;
-  padding: 2rem 0 2rem;
+#coin-container{
   margin: 2rem 0 1rem;
-  /* height:100%; */
 }
 
-table {
+table{
+  width:100%;
+  /* padding: 2rem 0 2rem; */
+  /* margin: 2rem 0 1rem; */
   border:none;
   border-collapse: collapse;
 }
+
 
 table td {
   width: calc(100% / var(--col-num));
@@ -43,10 +48,6 @@ table td {
 }
 
 .coin{ 
-  /* width: calc(100% / var(--col-num)); */
-  /* height: 100%; */
-  /* width: 100%; */
-
   height:calc(500px / var(--row-num));
   margin: 0 0.25rem 0.1rem;
   padding: 5px;
@@ -72,12 +73,12 @@ table td {
 .counter-container {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
 }
 
 
 .counter {
-  margin: 1rem;
+  /* margin: 1rem; */
   padding: 0.5rem;
   border: 2px solid #ccc;
   background-color: #f8f8f8;
@@ -98,4 +99,9 @@ table td {
   text-align: center;
   background-color: #fff;
   border-radius: 5px;
+}
+
+/* warning margin correction */
+#warning-container-next {
+  margin-top: 0;
 }

@@ -1,6 +1,7 @@
 import {prepareSliders, updateSlider} from "./helpers/slider.js";
+import {showWarning, clearWarning} from "./helpers/warnings.js";
 
-const itemForm = document.getElementById('item-form');
+// const itemForm = document.getElementById('item-form');
 const btnPrev = document.getElementById("btn-prev");
 const btnNext = document.getElementById("btn-next");
 
@@ -76,6 +77,7 @@ function storeSliderValues(){
   } else {
     localStorage.setItem('userExpressions', JSON.stringify({'functions': {[curExpression]: values}}));
   }
+  return values.map(Number);
 }
 
 function displaySliderValues() {
@@ -111,10 +113,15 @@ function onLoad() {
 
 function nextPage() {
   // store slider values
-  storeSliderValues();
+  const values = storeSliderValues();
+  clearWarning("warning-container-next");
+  if(values.reduce((x,y) => x+y, 0) == 0){
+    showWarning('Please move at least one slider to proceed to the next page!', "warning-container-next");
+    return
+  }
   // update currPosition and redirect to next page
   updateExpressionPosition('next');
-  redirectToPage(nextPageURL);
+  redirectToPage(nextPageURL); 
 }
 
 function previousPage(){

@@ -3,6 +3,7 @@
 @import "buttons.css";
 @import "expressions.css";
 @import "draggable.css";
+@import "warnings.css";
 
 
 .container {
@@ -10,7 +11,7 @@
 }
 
 .btn {
-  margin-top: rem; 
+  margin-top: 1rem; 
 }
 
 
@@ -123,7 +124,7 @@
 
 
 /* warnings */
-.warning-add{
+/* .warning-add{
   width: 100%;
   padding: 0.5rem;
   display: flex;
@@ -151,8 +152,6 @@
 }
 
 .warning-next{
-  /* width: 100%; */
-  /* width: 100px; */
   display: flex;
   padding: 0.2rem 0.5rem;
   align-items: center;
@@ -162,10 +161,9 @@
 }
 
 .warning-next #warning-text {
-  /* width: 100%; */
   padding-right: 1rem;
   text-align: center;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 1px;
-}
+} */

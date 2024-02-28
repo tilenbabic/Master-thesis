@@ -1,3 +1,5 @@
+import {showWarning, clearWarning} from "./helpers/warnings.js";
+
 const btnPrev = document.getElementById("btn-prev");
 const btnNext = document.getElementById("btn-next");
 const cointContainer = document.getElementById('coin-container');
@@ -39,7 +41,7 @@ function createTable(){
   }
   
   output += `<tr>` + createLabelRow(cols) + `</tr>`;
-  table.innerHTML = '<table id="coinField">' + output + '</table>';    
+  table.innerHTML = '<table id="coin-field">' + output + '</table>';    
   
 }
 
@@ -119,6 +121,8 @@ function coinAddRemove(e){
   if(td.classList.contains("label")){
     return;
   }
+
+  clearWarning("warning-container-next");
 
   if(td.classList.contains("selected")){
     if(removeCoin(td.id)) {
@@ -221,6 +225,7 @@ function storeCoins(){
   } else {
     localStorage.setItem('userExpressions', JSON.stringify({'functionsCoins': {[curExpression]: values}}));
   }
+  return values;
 }
 
 function getCurrentExpression(){
@@ -249,7 +254,13 @@ function redirectToPage(url){
 
 function nextPage() {
   // store coins
-  storeCoins();
+  const values = storeCoins();
+  clearWarning("warning-container-next");
+  if(values.reduce((x,y) => x+y, 0) < 20){
+    showWarning('Please place at least 20 coins to proceed to the next page!', "warning-container-next");
+    return
+  }
+
   // update currPosition and redirect to next page
   updateExpressionPosition('next');
   redirectToPage(nextPageURL);

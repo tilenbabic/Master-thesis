@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/general_styles.css">
-    <link rel="stylesheet" href="styles/buttons.css">
     <link rel="stylesheet" href="styles/coins.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/e2a797dbb8.js" crossorigin="anonymous"></script>
-    <script src="scripts/coins.js" defer></script>
+    <script src="scripts/coins.js" type="module" defer></script>
     <title>Membership function</title>
 </head>
 <body>
@@ -25,7 +23,9 @@
             <div class="counter">
               Coins placed <span id="coins-counter">0</span>
             </div>
+            <div id="warning-container-next"></div>
           </div>
+
           <div class="buttons">
             <button type="button" class="btn" id="btn-prev">
               <i class="fas fa-arrow-circle-left"></i> Previous Page
