@@ -1,7 +1,29 @@
 const itemForm = document.getElementById('item-form');
 
-function storeComment (e){
-  e.preventDefault();
+function serverPost(){
+  const url = 'http://127.0.0.1:5000/';
+  const userData = localStorage.getItem('userData');
+  const userExpressions = localStorage.getItem('userExpressions');
+  // console.log(JSON.parse(userData));
+  // console.log(JSON.parse(userExpressions));
+  const data = JSON.stringify({'userData': JSON.parse(userData), 'userExpressions': JSON.parse(userExpressions)});
+  console.log(data);
+  
+  fetch(url, {
+      method: 'POST',
+      mode: 'cors', 
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: data, 
+  })
+  .then(data => console.log(data))
+  .catch((error) => {
+      console.error('Error:', error);
+  });
+}
+
+function storeComment (){
   const userComment = document.getElementById('user-comment');
   const userData = localStorage.getItem('userData');
   if (userData !== null) {
@@ -11,6 +33,14 @@ function storeComment (e){
   } else {
     localStorage.setItem('userData', JSON.stringify({'comment': userComment.value}));
   }
+}
+
+
+function completeSurvey(e){
+  // e.preventDefault();
+  storeComment();
+  console.log("send data");
+  serverPost();
 }
 
 function displayComment () {
@@ -27,4 +57,4 @@ function displayComment () {
 
 
 document.addEventListener('DOMContentLoaded', displayComment);
-itemForm.addEventListener('submit', storeComment);
+itemForm.addEventListener('submit', completeSurvey);
