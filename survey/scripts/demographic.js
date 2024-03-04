@@ -109,7 +109,7 @@ function storeContent(e){
   storeRadio('input[name="gender"]:checked', 'gender');
   storeRadio('input[name="english"]:checked', 'english');
   // redirect to next page
-  // redirectToPage('final.html');
+  // redirectToPage('comment.html');
 
 }
 
