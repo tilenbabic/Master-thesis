@@ -20,7 +20,8 @@
 .input-text {
   line-height: 1.5;
   font-weight: 600;
-  color: #444;
+  /* color: #444; */
+  color: var(--text-color);
   margin: 1rem;
   font-size: 16px;
   /* font-weight: 500; */
@@ -38,10 +39,15 @@
 }
 
 .left-side {
-  width: 40%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: start;
+}
+
+.input-field {
+  display: flex;
+  justify-content: space-between;
 }
 
 .form-input{
@@ -56,29 +62,38 @@
   font-size: 16px;
   border-bottom-width: 2px;
   transition: all 0.3s ease;
+
+  background-color: var(--container-background-color);
+  color: var(--text-color);
 }
 
 .btn-add {
   height: 45px;
-  width: 100%;
+  width: 100px;
   padding: 0.5rem;
-  font-size: 16px;
-  margin-bottom: 1rem;
+  font-size: 14px;
+  margin-left: 1rem;
+  /* margin-bottom: 1rem; */
+}
+
+.btn-add:hover {
+  background: var(--main-color-dark);
 }
 
 
 /* ranking container */
 
-.middle {
+.right-side {
   width: 40%;
   margin-left:1rem;
   margin-right: 1rem;
 }
 
-.ranking-container{
-  border: 2px solid #ccc;
+.ranking{
+  /* border: 2px solid #ccc; */
   border-radius: 5px;
   padding: 0 0.5rem 0;
+  width: 100%;
 }
 
 .blank {
@@ -98,22 +113,74 @@
   cursor: default;
 }
 
+.ranking-container{
+  display: flex;
+}
 
+.scale-container table {
+  height: 100%;
+  border-collapse: collapse;
+}
 
+.scale-label {
+  /* height: 50px; */
+  /* width: 40px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  line-height: 1.5;
+  font-weight: 600;
+  /* color: #444; */
+  color: var(--text-color);
+  /* border: 2px solid #444; */
+}
 
-/* expression container */
+.scale {
+  display: flex;
+  width: 100%;
+}
 
-.right-side {
-  float: right;
-  width: 20%;
+.label-box {
+  display: flex;
+  width: 30px;
+}
+
+.label-box-lines {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
+  /* width: 50px; */
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
+  /* height: 100%; */
+
 }
 
-.expression-container {
-  height: 590px;
+/* .label-box-lines div {
+  width: 100%;
+  border-left: 2px solid #444;
+} */
+
+.bigger-lines {
+  width: 20px;
 }
+.smaller-lines {
+  /* width: 100%; */
+  width: 10px;
+}
+
+.border-left {
+  border-left: 2px solid #888;
+}
+.border-top {
+  border-top: 2px solid #888;
+}
+
+.line {
+  height: 100%;
+}
+
 
 
 

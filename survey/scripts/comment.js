@@ -1,4 +1,6 @@
-const itemForm = document.getElementById('item-form');
+// const itemForm = document.getElementById('item-form');
+const btnPrev = document.getElementById("btn-prev");
+const btnNext = document.getElementById("btn-next");
 
 function serverPost(){
   const url = 'http://127.0.0.1:5000/';
@@ -41,6 +43,7 @@ function completeSurvey(e){
   storeComment();
   console.log("send data");
   serverPost();
+  redirectToPage('final.html');
 }
 
 function displayComment () {
@@ -55,6 +58,15 @@ function displayComment () {
   }
 }
 
+function redirectToPage(url){
+  location.href = url;
+}
+
+function previousPage(){
+  redirectToPage('english.html');
+}
+
 
 document.addEventListener('DOMContentLoaded', displayComment);
-itemForm.addEventListener('submit', completeSurvey);
+btnNext.addEventListener('click', completeSurvey);
+btnPrev.addEventListener('click', previousPage);

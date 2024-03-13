@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/lexicon.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/e2a797dbb8.js" crossorigin="anonymous"></script>
+    <script src="scripts/helpers/expressions.js" defer></script>
+    <!-- <script src="scripts/lexicon.js" type="module" defer></script> -->
+    <script src="scripts/lexicon_new.js" defer></script>
+    <title>Lexicon</title>
+    
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="title">Lexicon</div> -->
+        <form action="lexicon50.html" id="item-form">
+          <p  class="instructions">
+            Which verbal probability or uncertainty expression do you typically employ to describe the <b>probability of 0%</b>? <br>
+            (You may select from the suggestions provided or provide your own.) 
+          </p>
+          <div class="input-box">
+            <!-- <span class="details">Probability of 0</span> -->
+            <!-- <select name="year" id="year" required></select> -->
+            <input
+              type="text"
+              class="form-input"
+              id="base-expression-0"
+              placeholder="Enter expressions"
+              autocomplete="off"
+              required
+            />
+            <!-- <datalist id="expressions"> </datalist> -->
+          </div>
+          <fieldset class="expression-field">
+            <legend class="expression-title" align="center">SUGGESTIONS</legend>
+            <div class="expression-container">
+              <ul id="expression-list">l
+                
+              </ul>
+            </div>
+          </fieldset>
+          
+          <div class="buttons">
+            <button type="button" class="btn" id="btn-prev">
+              <i class="fas fa-arrow-circle-left"></i> Previous Page
+            </button>
+            <button type="submit" class="btn" id="btn-next">
+                Next Page <i class="fas fa-arrow-circle-right"></i>  
+            </button>
+          </div>
+        </form>
+    </div>   
+</body>
+</html>

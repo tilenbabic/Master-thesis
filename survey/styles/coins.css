@@ -3,8 +3,6 @@
 @import "warnings.css";
 
 :root{
-  --color-one: #71b7e6;
-  --color-two: #9b59b6;  
   --row-num: 20;
   --col-num: 11;
 }
@@ -17,7 +15,7 @@
 }
 
 .selected {
-  background: var(--color-two);
+  background: var(--main-color);
 }
 
 .label {
@@ -62,7 +60,7 @@ table td {
   background: #999;
 }
 .valid-add:hover{
-  background: #d7bde2;
+  background: var(--main-color-light);
 }
 /* table tr{
   height:calc(100 / var(--row-num));
@@ -97,7 +95,7 @@ table td {
   /* width: 20px; */
   border: 2px solid #ccc;
   text-align: center;
-  background-color: #fff;
+  background-color: var(--container-background-color);
   border-radius: 5px;
 }
 

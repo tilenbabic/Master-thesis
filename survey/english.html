@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/general_styles.css">
+    <link rel="stylesheet" href="styles/inputs.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/e2a797dbb8.js" crossorigin="anonymous"></script>
+    <script src="scripts/demographic_new.js" defer></script>
+    <title>Demographic</title>
+</head>
+<body>
+    <div class="container" id="english-container">
+        <div class="title">Demographics</div>
+        <form action="comment.html" id="item-form">
+            <p  class="instructions">
+                Please answer a few demographic questions, and if for any reason you feel uncomfortable answering a question, please select the "I prefer not to answer" option.
+            </p>
+            <div class="radio-details">
+              <span class="radio-title">Is English your first language?</span>
+              <input class="form-input" type="radio" name="english" id="english-dot-yes" required>
+              <input class="form-input" type="radio" name="english" id="english-dot-no">
+              <input class="form-input" type="radio" name="english" id="english-dot-none">
+              
+              <div class="category">
+                  <label for="english-dot-yes">
+                      <span class="dot english-one"></span>
+                      <span class="english">Yes</span>
+                  </label>
+                  <label for="english-dot-no">
+                      <span class="dot english-two"></span>
+                      <span class="english">No</span>
+                  </label>
+                  <label for="english-dot-none">
+                      <span class="dot english-three"></span>
+                      <span class="english">I prefer not to answer</span>
+                  </label>
+              </div>
+            </div>
+            <div class="buttons">
+                <button type="button" class="btn" id="btn-prev">
+                    <i class="fas fa-arrow-circle-left"></i> Previous Page
+                </button>
+                <button type="submit" class="btn" id="btn-next">
+                    Next Page <i class="fas fa-arrow-circle-right"></i>  
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

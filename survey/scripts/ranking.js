@@ -1,11 +1,118 @@
-import {loadSuggestions} from "./helpers/expressions.js";
-import {showWarning, clearWarning} from "./helpers/warnings.js";
-import {createBlank, createDraggable} from "./helpers/elements.js";
+// import {loadSuggestions} from "./helpers/expressions.js";
+// import {showWarning, clearWarning} from "./helpers/warnings.js";
+// import {createBlank, createDraggable} from "./helpers/elements.js";
 
 const formBtn = document.getElementById('btn-add');
 const containers = document.querySelectorAll('.dragging-container')
 const btnPrev = document.getElementById("btn-prev");
 const btnNext = document.getElementById("btn-next");
+
+// functions from imports
+// functions from -> import {createBlank, createDraggable} from "./helpers/elements.js"
+// create deault icon element
+function createIcon(classes) {
+  const icon = document.createElement('i');
+  icon.className = classes;
+  return icon;
+}
+
+// create remove icon/button element
+function createRemove(classes) {
+  const button = document.createElement('button');
+  button.className = classes;
+  const icon = createIcon('fa-solid fa-xmark');
+  button.appendChild(icon);
+  return button;
+}
+
+// create 3 dots icon element
+function createDots() {
+  const span = document.createElement('span');
+  span.className = "align-middle";
+  const icon = createIcon('fa-solid fa-ellipsis-vertical fa-lg');
+  span.appendChild(icon);
+  return span;
+}
+
+// create text element
+function createText(newExpression, className) {
+  const span = document.createElement('span');
+  const text = document.createTextNode(newExpression);
+  span.className = className;
+  span.appendChild(text);
+  return span;
+}
+
+// puzzle together text, dots-icon and remove-icon/button to create draggable element
+function createDraggable(newExpression) {
+  const p = document.createElement('p'); 
+  const dots = createDots(); // 
+  const remove = createRemove('remove-item btn-link text-red');
+  const text = createText(newExpression, "draggable-text");
+  
+  p.appendChild(dots);
+  p.appendChild(text);
+  p.appendChild(remove);
+  
+  p.classList.add('draggable');
+  p.setAttribute('draggable',true);
+  return p;
+}
+
+// blank
+function createBlank(){
+  const p = document.createElement('p'); 
+  p.classList.add('blank');
+  return p
+}
+
+// functions from -> import {showWarning, clearWarning} from "./helpers/warnings.js";
+
+function createTextWarning(warningText, idName) {
+  const span = document.createElement('span');
+  const text = document.createTextNode(warningText);
+  span.setAttribute("id", idName);
+  // span.id = idName;
+  span.appendChild(text);
+  return span;
+}
+
+function createWarningAdd(warningText){
+  const div = document.createElement('div'); 
+  const icon = createIcon("fa fa-exclamation-triangle fa-2x");
+  const text = createTextWarning(warningText, "warning-text");
+
+  div.appendChild(icon);
+  div.appendChild(text);
+
+  div.classList.add("warning-add");
+  return div;
+}
+
+function createWarningNext(warningText){
+  const div = document.createElement('div'); 
+  const icon = createIcon("fa fa-exclamation-triangle");
+  const text = createTextWarning(warningText, "warning-text");
+
+  div.appendChild(text);
+  div.appendChild(icon);
+  
+  div.classList.add("warning-next");
+  return div;
+}
+
+
+function showWarning(warningText, containerID){
+  const warning = (containerID == "warning-container-add")? createWarningAdd(warningText) : createWarningNext(warningText);
+  const warningContainer = document.getElementById(containerID);
+  warningContainer.appendChild(warning);
+}
+
+function clearWarning(containerID){
+  const warningContainer = document.getElementById(containerID);
+  warningContainer.innerHTML = '';
+}
+// end of imports
 
 
 function redirectToPage(url){
@@ -20,15 +127,24 @@ function randomBlank(){
   return nodes[Math.floor(Math.random() * nodes.length)]
 }
 
+function clearActive(){
+  const items = document.querySelectorAll('.active');
+  console.log(items);
+  items.forEach(element => {
+    element.classList.remove('active');
+    element.classList.add('not-active');
+  });
+}
+
 // add draggable element to ranking container on user input
 function addItem(){
   const itemInput = document.getElementById('item-input');
   const newExpression = itemInput.value;
-  clearWarning('warning-container-add');
+  // clearWarning('warning-container-add');
   clearWarning('warning-container-next');
   // Validate Input
   if (newExpression === '') {
-    showWarning('Please add an expression', 'warning-container-add');
+    // showWarning('Please add an expression', 'warning-container-add');
     // alert('Please add an item');
     return;
   }
@@ -36,7 +152,7 @@ function addItem(){
   const replacemenNode = randomBlank();
   if (replacemenNode == null){
     // alert('You entered too many expressions');
-    showWarning('You entered too many expressions', 'warning-container-add');
+    // showWarning('You entered too many expressions', 'warning-container-add');
     return;
   }
 
@@ -46,6 +162,7 @@ function addItem(){
   const container = document.getElementById(replacemenNode.parentElement.id);
   container.replaceChild(element,replacemenNode);
 
+  clearActive();
   itemInput.value = '';
 }
 
@@ -195,7 +312,7 @@ function displayExpressions() {
   })
 
   // load suggestions
-  loadSuggestions();
+  // loadSuggestions();
 }
 
 function getContainerExpressions(id){
@@ -280,7 +397,7 @@ function getBaseExpressions(){
 function alertUser(base, lower, upper){
   // console.log(base.length, upper.length, lower.length);
   clearWarning('warning-container-next');
-  clearWarning('warning-container-add');
+  // clearWarning('warning-container-add');
   if(base.length !== 3){
     // alert("You need to enter 3 base expressions");
     showWarning('You need to enter 3 base expressions', 'warning-container-next');
@@ -351,7 +468,8 @@ function previousPage(){
   const upperExpressions = getContainerExpressions('upper-container');
   storeContainerExpressions('upperContainer', upperExpressions);
   storeContainerExpressions('lowerContainer', lowerExpressions);
-  redirectToPage('lexicon.html');
+  // redirectToPage('lexicon.html');
+  redirectToPage('lexicon100.html');
 }
 
 function init() {

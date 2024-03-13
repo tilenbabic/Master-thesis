@@ -1,21 +1,39 @@
 @import "scrollbar.css";
+@import "general_colors.css";
 
-.expression-title{
+/* .expression-title{
   line-height: 1.5;
   font-weight: 600;
   color: #444;
   margin: 1rem;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-align: center;
+} */
+
+
+.expression-field {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin-top: 1rem;
+}
+
+.expression-title {
+  line-height: 1.5;
+  font-weight: 600;
+  color: #666;
+  /* margin: 1rem; */
+  padding: 0 1rem;
   font-size: 16px;
   /* font-weight: 500; */
   letter-spacing: 0.5px;
   text-align: center;
 }
 
-.expression-container {
+/* .expression-container {
   width: 100%;
   border: solid 2px #ccc;
   border-radius: 5px;
-  /* width: 200px; */
   overflow: hidden; 
   overflow: auto;
 }
@@ -32,8 +50,43 @@
 
 li:nth-child(odd){
   background-color: #f4f4f4;
+} */
+
+.expression-container {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.expression-container ul {
+  /* margin-top: 20px; */
+  padding: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 
+.expression-container ul li {
+  display: flex;
+  justify-content: space-between;
+  /* background: #ebdef0; */
+  /* color: white; */
+  /* width: 45%; */
+  /* border: 1px solid #ccc; */
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin: 0 5px 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.not-active {
+  border: 2px solid #ccc;
+}
+
+.active {
+  border: 2px solid var(--main-color);
+}
 
 

@@ -22,8 +22,12 @@
   width: 30%;
 }
 
-.expression-container{
+/* .expression-container{
   height: 200px;
+} */
+
+#item-form {
+  min-height: 500px;
 }
 
 

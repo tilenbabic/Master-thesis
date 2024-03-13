@@ -1,4 +1,4 @@
-import {showWarning, clearWarning} from "./helpers/warnings.js";
+// import {showWarning, clearWarning} from "./helpers/warnings.js";
 
 const btnPrev = document.getElementById("btn-prev");
 const btnNext = document.getElementById("btn-next");
@@ -10,6 +10,63 @@ const cols = 11;
 let coinsCounter = 0;
 let curExpression;
 let nextPageURL = 'ranking.html';
+
+
+// functions from imports
+// functions from -> import {showWarning, clearWarning} from "./helpers/warnings.js"
+// create deault icon element
+function createIcon(classes) {
+  const icon = document.createElement('i');
+  icon.className = classes;
+  return icon;
+} 
+
+function createTextWarning(warningText, idName) {
+  const span = document.createElement('span');
+  const text = document.createTextNode(warningText);
+  span.setAttribute("id", idName);
+  // span.id = idName;
+  span.appendChild(text);
+  return span;
+}
+
+function createWarningAdd(warningText){
+  const div = document.createElement('div'); 
+  const icon = createIcon("fa fa-exclamation-triangle fa-2x");
+  const text = createTextWarning(warningText, "warning-text");
+
+  div.appendChild(icon);
+  div.appendChild(text);
+
+  div.classList.add("warning-add");
+  return div;
+}
+
+function createWarningNext(warningText){
+  const div = document.createElement('div'); 
+  const icon = createIcon("fa fa-exclamation-triangle");
+  const text = createTextWarning(warningText, "warning-text");
+
+  div.appendChild(text);
+  div.appendChild(icon);
+  
+  div.classList.add("warning-next");
+  return div;
+}
+
+
+function showWarning(warningText, containerID){
+  const warning = (containerID == "warning-container-add")? createWarningAdd(warningText) : createWarningNext(warningText);
+  const warningContainer = document.getElementById(containerID);
+  warningContainer.appendChild(warning);
+}
+
+function clearWarning(containerID){
+  const warningContainer = document.getElementById(containerID);
+  warningContainer.innerHTML = '';
+}
+
+// end of functions from imports
 
 
 
@@ -161,7 +218,7 @@ function updateExpressionPosition(dir){
       } else if (position >= orderLen){
         position = orderLen - 1;
         // redirect to final.html
-        updateNextPageURL('demographic.html');
+        updateNextPageURL('year.html');
       } else {
         updateNextPageURL('coins.html');
       }
@@ -177,7 +234,6 @@ function getCoinsValues(){
     let coinsNum = 0;
     for(let j=0; j < rows; j++){
       const coin = document.getElementById(`${j},${i}`);
-      console.log(coin);
       if(!coin.classList.contains("selected")) break;
       coinsNum++;
     }

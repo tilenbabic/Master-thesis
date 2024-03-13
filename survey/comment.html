@@ -13,31 +13,26 @@
 <body>
     <div class="container">
         <div class="title">Final comments</div>
-        <form action="#" id="item-form">
+        <div id="item-form">
             <p class="instructions">
                 You are almost done!<br><br>
                 If you have any thoughts or comments about the topic, or research, or this questionnaire, please share them with us:
             </p>
             <div class="input-box">
                 <!-- <span class="details">Enter your ID to start</span> -->
-                <textarea id="user-comment" cols="30" rows="10" placeholder="Write your complaints and compliments"></textarea>
+                <textarea id="user-comment" cols="30" rows="7" placeholder="Write your complaints and compliments"></textarea>
                 <!-- <input type="text" placeholder="Write your complaints and compliments"> -->
             </div>
             <div class="buttons">
                 <button type="button" class="btn" id="btn-prev">
                     <i class="fas fa-arrow-circle-left"></i> Previous Page
                 </button>
-              <button class="btn">
+              <button type="button" class="btn" id="btn-next">
                   Complete <i class="fas fa-arrow-circle-right"></i>  
               </button>
             </div>
             
-        </form>
+        </div>
     </div>
-    <script type="text/javascript">
-        document.getElementById("btn-prev").onclick = function () {
-            location.href = "demographic.html";
-        };
-    </script>
 </body>
 </html> 

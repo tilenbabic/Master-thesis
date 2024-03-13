@@ -1,0 +1,30 @@
+/* dyslexia theme */
+:root{
+  --background-color: #ddedfd;
+  --main-color: #1E88EF; 
+  --main-color-dark: #0d5fb0;
+  --main-color-light: #ddedfd;
+  --text-color: #065096;
+  --container-background-color: #fdfcfa;
+}
+
+/* purple theme */
+/* :root{
+  --background-color: #ebdef0;
+  --main-color: #9B59B6;  
+  --main-color-dark: #6e3a84;
+  --main-color-light: #d7bde2;
+  --text-color: #444;
+  --container-background-color: #fff;
+} */
+
+/* blue theme */
+/* :root{
+  --background-color: #ddedfd;
+  --main-color: #1E88EF; 
+  --main-color-dark: #0d5fb0;
+  --main-color-light: #ddedfd;
+  --text-color: #444;
+  --container-background-color: #fff;
+} */
+

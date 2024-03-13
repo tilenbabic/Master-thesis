@@ -11,27 +11,32 @@
     <title>Introduction</title>
 </head>
 <body>
-    <div class="container">
-        <div class="title">Introduction</div>
-        <form action="lexicon.html" id="item-form">
-            <p class="instructions">
-                Dear Participant,<br><br>
-                We are researchers from the Faculty of computer and information science, University of Ljubljana, Slovenia.
-                Our goal is to better understand how people perceive verbal expressions of probabilities. 
-                This survey will take less than ? minutes of your time, but your input will be indispensable to our research.
-                The survey is completely anonymous, but if you for any reason feel uncomfortable with answering a question, opt for "I prefer not to answer" or simply leave the question unanswered. We plan on publishing our findings, but we will not share the individual-level data with any third party. 
-                If you have any questions or comments about the survey, please contact us at: datascience@fri.uni-lj.si.
-            </p>
-            <div class="input-box">
-                <!-- <span class="details">Enter your ID to start</span> -->
-                <input id="user-id" class="form-input without-label" type="text" placeholder="Enter your ID to start" required autocomplete="off">
+    <form action="lexiconIntro.html">
+        <div class="container">
+            <!-- <div class="title">Introduction</div> -->
+            <div id="item-form">
+                <p class="instructions">
+                    Dear Participant,<br><br>
+                    We are researchers from the Faculty of computer and information science, University of Ljubljana, Slovenia.<br><br>
+                    Our goal is to better understand how people perceive verbal expressions of probabilities. <br><br>
+                    This survey will take less than ? minutes of your time, but your input will be indispensable to our research.<br><br>
+                    The survey is completely anonymous, but if you for any reason feel uncomfortable with answering a question, opt for "I prefer not to answer" or simply leave the question unanswered. We plan on publishing our findings, but we will not share the individual-level data with any third party. <br><br>
+                    If you have any questions or comments about the survey, please contact us at: datascience@fri.uni-lj.si.
+                </p>
+                <div class="input-box">
+                    <!-- <span class="details">Enter your ID to start</span> -->
+                    <input id="user-id" class="form-input without-label" type="text" placeholder="Enter your ID to start" required autocomplete="off">
+                </div>
+                
             </div>
             <div class="buttons first"> 
-                <button type="submit" class="btn" id="btn-next">
-                    Next Page <i class="fas fa-arrow-circle-right"></i>  
-                </button>
-            </div>
-        </form>
-    </div>
+            <button type="submit" class="btn" id="btn-next">
+                Next Page <i class="fas fa-arrow-circle-right"></i>  
+            </button>
+        </div>
+        </div>
+                
+    </form>
+
 </body>
 </html>

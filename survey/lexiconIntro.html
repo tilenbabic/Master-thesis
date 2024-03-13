@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/lexicon.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/e2a797dbb8.js" crossorigin="anonymous"></script>
+    <!-- <script src="scripts/expressions.js" defer></script> -->
+    <!-- <script src="scripts/lexicon.js" type="module" defer></script> -->
+    <title>Lexicon</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="title">Introduction to Verbal probabilities</div>
+        <div id="item-form">
+          <div  class="instructions">
+            Verbal probabilities or uncertainty expressions are linguistic terms or phrases used to convey the likelihood or degree of certainty about a statement or event without using numerical values. <br>
+            These expressions are often employed when quantifying uncertainty or probability is difficult or when precise numerical data is unavailable or unnecessary. <br><br>
+            Example of verbal probability in a sentence: <br>
+            "With clear skies and rising temperatures, it's <b>unlikely</b> that we'll see any precipitation for the rest of the week." 
+            <br> <br>
+            + Instructions and an image of visual instructions
+          </div>
+          
+          <div class="buttons">
+            <button type="button" class="btn" id="btn-prev">
+              <i class="fas fa-arrow-circle-left"></i> Previous Page
+            </button>
+            <button type="button" class="btn" id="btn-next">
+                Next Page <i class="fas fa-arrow-circle-right"></i>  
+            </button>
+          </div>
+        </div>
+    </div>
+<script>
+  function previousPage(){
+    location.href = 'index.html';
+  }
+  function nextPage(){
+    location.href = 'lexicon0.html';
+  }
+  document.getElementById("btn-next").addEventListener('click', nextPage);
+  document.getElementById("btn-prev").addEventListener('click', previousPage);
+</script>    
+</body>
+</html>

@@ -10,11 +10,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     /> -->
-  <!-- <link rel="stylesheet" href="css_old/lexicon.css"> -->
   <script src="https://kit.fontawesome.com/e2a797dbb8.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles/ranking.css">
-  <script src="scripts/ranking.js" type="module" defer></script>
-  <!-- <script src="scripts/expressions.js" defer></script> -->
+  <!-- <script src="scripts/ranking.js" type="module" defer></script> -->
+  <script src="scripts/ranking.js" defer></script>
+  <!-- <script src="scripts/helpers/validation.js" defer></script> -->
+  <script src="scripts/helpers/expressions.js" defer></script>
   <title>Lexicon</title>
 </head>
 <body>
@@ -29,73 +30,156 @@
           <div class="left-side">
             <div class="input-bar">
                 <div class="input-text">EXPRESSIONS</div>
-                <input
-                  type="text"
-                  class="form-input"
-                  id="item-input"
-                  name="item"
-                  placeholder="Enter expressions"
-                  autocomplete="off"
-                />
+                <div class="input-field">
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="item-input"
+                    name="item"
+                    placeholder="Enter expressions"
+                    autocomplete="off"
+                  />
 
-                <button type="button" class="btn btn-add" id="btn-add">
-                  <i class="fa-solid fa-plus"></i> Add expression
-                </button>
-                <div id="warning-container-add">
-                  <!-- <div class="warning">
-                    <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
-                    <span id="warning-text">Please add an item</span>
-                  </div> -->
+                  <button type="button" class="btn btn-add" id="btn-add">
+                    <i class="fa-solid fa-plus"></i> Add
+                  </button>
                 </div>
+                
+
+                <!-- <div id="warning-container-add"></div> -->
+                <fieldset class="expression-field">
+                  <legend class="expression-title" align="center">SUGGESTIONS</legend>
+                  <div class="expression-container">
+                    <ul id="expression-list">
+                      
+                    </ul>
+                  </div>
+                </fieldset>
+                
             </div>
           </div>
 
-          <div class="middle">
+          <div class="right-side">
             <div class="ranking-text">RANKING</div>
             <div class="ranking-container">
-              <div class="non-draggable" id="base-expression-100"></div>
+              <!-- <div class="scale-container">
+                <table>
+                  <tr>
+                    <td class="scale-label">100</td>
+                  </tr>
+                  <tr>
+                    <td class="scale-line">1</td>
+                  </tr>
+                  <tr>
+                    <td class="scale-label">50</td>
+                  </tr>
+                  <tr>
+                    <td class="scale-line">1</td>
+                  </tr>
+                  <tr>
+                    <td class="scale-label">0</td>
+                  </tr>
+                </table>
+              </div> -->
+              <div class="ranking">
+                <div class="scale">
+                  <div class="label-box">
+                    <div class="label-box-lines">
+                      <div class="line bigger-lines"></div>
+                      <div class="line border-left border-top bigger-lines"></div>
+                    </div>
+                    <span class="scale-label">100</span>
+                  </div>
+                  <div class="non-dragging-container">
+                    <div class="non-draggable" id="base-expression-100"></div>
+                  </div>
+                </div>
+                
+                <div class="scale">
+                  <div class="label-box">
+                    <div class="label-box-lines">
+                      <div class="line border-left smaller-lines"></div>
+                      <div class="line border-left border-top smaller-lines"></div>
+                      <div class="line border-left smaller-lines"></div>
+                      <div class="line border-left border-top smaller-lines"></div>
+                      <div class="line border-left smaller-lines"></div>
+                      <div class="line border-left border-top smaller-lines"></div>
+                      <div class="line border-left smaller-lines"></div>
+                      <div class="line border-left border-top smaller-lines"></div>
+                    </div>
+                  </div>
+                  <div class="dragging-container" id="upper-container">
+                    <p class="blank"></p>
+                    <p class="blank"></p>
+                    <p class="blank"></p>
+                    <p class="blank"></p>
+                  </div>
+                </div>
+                
 
-              <div class="dragging-container" id="upper-container">
+                <div class="scale">
+                  <div class="label-box">
+                    <div class="label-box-lines">
+                      <div class="line border-left bigger-lines"></div>
+                      <div class="line border-left border-top bigger-lines"></div>
+                    </div>
+                    <span class="scale-label">50</span>
+                  </div>
+                  <div class="non-dragging-container">
+                    <div class="non-draggable" id="base-expression-50"></div>
+                  </div>
+                </div>
 
-                <!-- <p class="draggable" >
-                  <span class="align-middle">
-                    <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
-                  </span>
-                  <span class="draggable-text">tralalala</span>
-                  <button class="remove-item btn-link text-red">
-                    <i class="fa-solid fa-xmark"></i>
-                  </button>
-                </p> -->
-                <p class="blank"></p>
-                <p class="blank"></p>
-                <p class="blank"></p>
-                <p class="blank"></p>
 
-              </div>
+                <div class="scale">
+                  <div class="label-box">
+                    <div class="label-box-lines">
+                      <div class="line border-left smaller-lines"></div>
+                      <div class="line border-left border-top smaller-lines"></div>
+                      <div class="line border-left smaller-lines"></div>
+                      <div class="line border-left border-top smaller-lines"></div>
+                      <div class="line border-left smaller-lines"></div>
+                      <div class="line border-left border-top smaller-lines"></div>
+                      <div class="line border-left smaller-lines"></div>
+                      <div class="line border-left border-top smaller-lines"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="dragging-container" id="lower-container">
+                    <p class="blank"></p>
+                    <p class="blank"></p>
+                    <p class="blank"></p>
+                    <p class="blank"></p>
+                  </div>
+                </div>
+                
 
-              <div class="non-draggable" id="base-expression-50"></div>
-
-              <div class="dragging-container" id="lower-container">
-
-                <p class="blank"></p>
-                <p class="blank"></p>
-                <p class="blank"></p>
-                <p class="blank"></p>
-              </div>
-
-              <div class="non-draggable"  id="base-expression-0"></div>  
+                <div class="scale">
+                  <div class="label-box">
+                    <div class="label-box-lines">
+                      <div class="line border-left bigger-lines"></div>
+                      <div class="line border-top bigger-lines"></div>
+                    </div>
+                    <span class="scale-label">0</span>
+                  </div>
+                  <div class="non-dragging-container">
+                    <div class="non-draggable" id="base-expression-0"></div>
+                  </div>
+                </div>
+              </div>              
             </div>
+
             
           </div> 
 
-          <div class="right-side">
+          <!-- <div class="right-side">
             <span class="expression-title">SUGGESTIONS</span>
             <div class="expression-container">
               <ul id="expression-list">
                 
               </ul>
             </div>
-          </div>
+          </div> -->
         </div>
 
         
