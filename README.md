@@ -2,4 +2,5 @@
 ## Survey
 
 - to start a survey run <strong><code>index.html</code></strong>
-- use <strong><code>Live Server</code></strong> extension to avoid CORS error ([VSCode](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer))
+<!-- - use <strong><code>Live Server</code></strong> extension to avoid CORS error ([VSCode](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)) -->
+- you can change the color theme in <strong><code>styles/general_colors.css</code></strong>
