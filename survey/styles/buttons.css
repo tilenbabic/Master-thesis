@@ -56,10 +56,10 @@
 } */
 
 
-#btn-next{
+/* #btn-next{
   background: var(--main-color);
-}
-#btn-next:hover {
+} */
+.btn:hover {
   background: var(--main-color-dark);
 }
 
