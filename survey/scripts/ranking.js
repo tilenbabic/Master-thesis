@@ -421,12 +421,12 @@ function getNextPage(){
   if (surveyStatus !== null) {
     status = JSON.parse(surveyStatus);
     if('membershipFunctionStatus' in status){
-      status['membershipFunctionStatus'] = (status['membershipFunctionStatus'] == 'membershipfunction.html') ? 'coins.html' : 'membershipfunction.html';
+      status['membershipFunctionStatus'] = (status['membershipFunctionStatus'] == 'sliders.html') ? 'coins.html' : 'sliders.html';
     } else {
-      status['membershipFunctionStatus'] = 'membershipfunction.html';
+      status['membershipFunctionStatus'] = 'sliders.html';
     }
   }else{
-    status = {'membershipFunctionStatus': 'membershipfunction.html'};
+    status = {'membershipFunctionStatus': 'sliders.html'};
   }
   localStorage.setItem('surveyStatus', JSON.stringify(status));
   return status['membershipFunctionStatus'];

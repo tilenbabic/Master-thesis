@@ -147,7 +147,7 @@ function updateExpressionPosition(dir){
         // redirect to final.html
         updateNextPageURL('year.html');
       } else {
-        updateNextPageURL('membershipfunction.html');
+        updateNextPageURL('sliders.html');
       }
       status['currPosition'] = position;
       localStorage.setItem('surveyStatus', JSON.stringify(status));

@@ -161,7 +161,7 @@ function getPreviousPage(){
     const status = JSON.parse(surveyStatus);
     if('membershipFunctionStatus' in status) return status['membershipFunctionStatus'];
   }
-  return 'membershipfunction.html';
+  return 'sliders.html';
 }
 
 function getPage(){
